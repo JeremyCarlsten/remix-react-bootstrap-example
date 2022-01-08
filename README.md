@@ -1,53 +1,33 @@
-# Welcome to Remix!
-
+# Welcome to Remix with bootstrap!
 - [Remix Docs](https://remix.run/docs)
+- [React-bootstrap-Docs](https://react-bootstrap.github.io/)
 
-## Development
+Good news, it pretty much just works. Here's what I found. 
 
-From your terminal:
+# Changes needed to get started.
 
-```sh
-npm run dev
+- Run the following terminal command to install react and bootstrap.
+(refer to the react-bootstrap docs for newer versions)  
+ ```npm install react-bootstrap bootstrap@5.1.3```
+
+- Include the bootstrap css (app/root.tsx)
+``` javascript
+// ...
+import bootstrapStyles from "bootstrap/dist/css/bootstrap.css";
+// ...
+export const links: LinksFunction = () => {
+  return [
+    {rel: 'stylesheet', href: bootstrapStyles},
+  ];
+}
+
+export default function App() {
+ //...
 ```
+- Start using Bootstrap :) (mostly) because remix is so cool.
 
-This starts your app in development mode, rebuilding assets on file changes.
 
-## Deployment
+## Known Gotcha's
+--- 
 
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
+- ```<Nav.link>``` Seems to work BUT, if you want to leverage remix's Link you can, just add the className "nav-link" and a data-rr-ui-event-key="my/link/path" [See Here](https://github.com/JeremyCarlsten/remix-react-bootstrap-example/blob/3b293f21e9a5404361f4302931b318faaacfdcc2/app/routes/index.tsx#L23)
