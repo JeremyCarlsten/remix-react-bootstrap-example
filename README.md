@@ -31,3 +31,4 @@ export default function App() {
 --- 
 
 - ```<Nav.link>``` Seems to work BUT, if you want to leverage remix's Link you can, just add the className "nav-link" and a data-rr-ui-event-key="my/link/path" [See Here](https://github.com/JeremyCarlsten/remix-react-bootstrap-example/blob/3b293f21e9a5404361f4302931b318faaacfdcc2/app/routes/index.tsx#L23)
+- Removing the <Scripts /> tag seems to work OK aside from the things react-bootstrap needs JS for. Dropdown doesn't for example. Carousels load but only shows first slide.
